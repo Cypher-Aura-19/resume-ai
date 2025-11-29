@@ -4,8 +4,10 @@ import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/context/AuthContext';
 import { Button } from '@/components/ui/button';
-import { LogOut, Settings, LayoutGrid, Loader2, Bell, Search, Plus, FileText, Briefcase, Target, TrendingUp, Brain, Upload, ChevronRight } from 'lucide-react';
+import { LogOut, Settings, LayoutGrid, Loader2, Bell, Search, Plus, FileText, Briefcase, Target, TrendingUp, Brain, Upload, ChevronRight, User } from 'lucide-react';
 import { GridPattern } from '@/components/Doodles';
+import UserProfile from '@/components/UserProfile';
+import ProfileSummaryCard from '@/components/ProfileSummaryCard';
 import gsap from 'gsap';
 
 export default function DashboardPage() {
@@ -208,17 +210,14 @@ export default function DashboardPage() {
             ))}
           </div>
 
-          {/* Quick Actions */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <button 
-              onClick={() => router.push('/dashboard/upload-resume')}
-              className="card-item p-6 bg-white dark:bg-black border border-neutral-200 dark:border-neutral-800 rounded-2xl hover-lift text-left group"
-            >
-              <Upload className="w-8 h-8 text-neutral-400 group-hover:text-black dark:group-hover:text-white transition-colors mb-3" />
-              <h3 className="text-base font-medium text-black dark:text-white mb-1">Upload Resume</h3>
-              <p className="text-sm text-neutral-500">Update your profile with latest resume</p>
-              <ChevronRight className="w-5 h-5 text-neutral-400 mt-2" />
-            </button>
+          {/* Quick Actions & Profile Summary */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {/* Profile Summary Card */}
+            <div className="card-item md:col-span-2">
+              <ProfileSummaryCard userId={user.id} />
+            </div>
+
+            {/* Quick Action Cards */}
             <button 
               onClick={() => router.push('/dashboard/jobs')}
               className="card-item p-6 bg-white dark:bg-black border border-neutral-200 dark:border-neutral-800 rounded-2xl hover-lift text-left group"
@@ -239,38 +238,71 @@ export default function DashboardPage() {
             </button>
           </div>
 
-          {/* Getting Started */}
-          <div className="card-item bg-gradient-to-br from-black to-neutral-800 dark:from-white dark:to-neutral-200 rounded-2xl p-8 text-white dark:text-black">
-            <h2 className="text-2xl font-light mb-4">Get Started with CareerAI</h2>
-            <p className="text-white/80 dark:text-black/80 mb-6">
-              Follow these steps to maximize your job search success
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-white/20 dark:bg-black/20 rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-sm font-medium">1</span>
+          {/* User Profile Section */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Profile */}
+            <div className="lg:col-span-2 card-item">
+              <div className="mb-6">
+                <div className="flex items-center gap-3 mb-2">
+                  <User className="w-5 h-5 text-neutral-600 dark:text-neutral-400" />
+                  <h2 className="text-2xl font-light text-black dark:text-white">Your Profile</h2>
                 </div>
-                <div>
-                  <p className="font-medium mb-1">Upload Your Resume</p>
-                  <p className="text-sm text-white/70 dark:text-black/70">Let AI analyze your skills and experience</p>
+                <p className="text-sm text-neutral-500">Based on your uploaded resume</p>
+              </div>
+              <UserProfile userId={user.id} />
+            </div>
+
+            {/* Getting Started Sidebar */}
+            <div className="card-item space-y-6">
+              <div className="bg-gradient-to-br from-black to-neutral-800 dark:from-white dark:to-neutral-200 rounded-2xl p-6 text-white dark:text-black">
+                <h3 className="text-lg font-medium mb-4">Quick Guide</h3>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <div className="w-6 h-6 bg-white/20 dark:bg-black/20 rounded-full flex items-center justify-center flex-shrink-0 text-xs font-medium">
+                      1
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium mb-1">Upload Resume</p>
+                      <p className="text-xs text-white/70 dark:text-black/70">AI analyzes your skills</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-6 h-6 bg-white/20 dark:bg-black/20 rounded-full flex items-center justify-center flex-shrink-0 text-xs font-medium">
+                      2
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium mb-1">Discover Jobs</p>
+                      <p className="text-xs text-white/70 dark:text-black/70">Get matched opportunities</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-6 h-6 bg-white/20 dark:bg-black/20 rounded-full flex items-center justify-center flex-shrink-0 text-xs font-medium">
+                      3
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium mb-1">Prep Interviews</p>
+                      <p className="text-xs text-white/70 dark:text-black/70">Practice with AI questions</p>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-white/20 dark:bg-black/20 rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-sm font-medium">2</span>
-                </div>
-                <div>
-                  <p className="font-medium mb-1">Discover Jobs</p>
-                  <p className="text-sm text-white/70 dark:text-black/70">Get personalized job recommendations</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-white/20 dark:bg-black/20 rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-sm font-medium">3</span>
-                </div>
-                <div>
-                  <p className="font-medium mb-1">Prepare for Interviews</p>
-                  <p className="text-sm text-white/70 dark:text-black/70">Practice with AI-generated questions</p>
+
+              {/* Recent Activity */}
+              <div className="bg-white dark:bg-black border border-neutral-200 dark:border-neutral-800 rounded-2xl p-6">
+                <h3 className="text-base font-medium text-black dark:text-white mb-4">Recent Activity</h3>
+                <div className="space-y-3 text-sm text-neutral-600 dark:text-neutral-400">
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-green-500 rounded-full" />
+                    <span>Resume analyzed</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full" />
+                    <span>Jobs discovered</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-purple-500 rounded-full" />
+                    <span>Profile updated</span>
+                  </div>
                 </div>
               </div>
             </div>

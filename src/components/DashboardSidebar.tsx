@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter, usePathname } from 'next/navigation';
-import { LayoutGrid, FileText, Briefcase, Target, TrendingUp, Settings, Brain } from 'lucide-react';
+import { LayoutGrid, FileText, Briefcase, Target, TrendingUp, Settings, Brain, User } from 'lucide-react';
 
 interface DashboardSidebarProps {
   user: {
@@ -16,11 +16,12 @@ export default function DashboardSidebar({ user }: DashboardSidebarProps) {
 
   const navItems = [
     { icon: LayoutGrid, label: 'Overview', href: '/dashboard' },
+    { icon: User, label: 'Profile', href: '/dashboard/profile' },
     { icon: FileText, label: 'Resume', href: '/dashboard/upload-resume' },
     { icon: Briefcase, label: 'Job Matches', href: '/dashboard/jobs' },
     { icon: Target, label: 'Interview Prep', href: '/dashboard/interview-prep' },
     { icon: TrendingUp, label: 'Analytics', href: '/dashboard/analytics' },
-    // { icon: Settings, label: 'Settings', href: '/dashboard/settings' },
+    { icon: Settings, label: 'Settings', href: '/dashboard/settings' },
   ];
 
   return (
