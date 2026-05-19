@@ -73,7 +73,7 @@ function Model() {
 
 export default function Hero3D() {
     return (
-        <div className="w-full h-full min-h-[400px] lg:min-h-[600px] relative">
+        <div className="w-full h-full min-h-[400px] lg:min-h-[600px] relative overflow-visible">
             <Canvas
                 camera={{ position: [0, 0, 5], fov: 45 }}
                 dpr={[1, 2]}
@@ -94,11 +94,11 @@ export default function Hero3D() {
                     </Float>
 
                     <ContactShadows
-                        position={[0, -1.5, 0]}
-                        opacity={0.4}
-                        scale={10}
-                        blur={2.5}
-                        far={4}
+                        position={[0, -1.8, 0]}
+                        opacity={0.3}
+                        scale={8}
+                        blur={3}
+                        far={5}
                     />
 
                     <OrbitControls

@@ -68,7 +68,7 @@ function HomePageContent() {
 
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-white dark:bg-black overflow-hidden relative">
+    <div ref={containerRef} className="min-h-screen bg-white dark:bg-black overflow-x-hidden relative">
       <Preloader onComplete={() => ScrollTrigger.refresh()} />
       <GridPattern />
 
@@ -101,7 +101,7 @@ function HomePageContent() {
       </nav>
 
       {/* Hero Section */}
-      <section className="min-h-screen flex flex-col justify-center px-6 lg:px-8 pt-20 relative overflow-hidden">
+      <section className="min-h-screen flex flex-col justify-center px-6 lg:px-8 pt-20 relative">
         <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-12 items-center">
           <div className="max-w-4xl relative z-10">
             {/* Badge */}
@@ -158,7 +158,7 @@ function HomePageContent() {
           </div>
 
           {/* 3D Visual */}
-          <div className="hidden lg:block h-[600px] w-full fade-up">
+          <div className="hidden lg:block h-[600px] w-full fade-up overflow-visible">
             <Hero3D />
           </div>
         </div>
