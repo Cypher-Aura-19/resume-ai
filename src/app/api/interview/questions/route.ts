@@ -19,7 +19,7 @@ export async function GET(request: NextRequest) {
 
       if (!prepError && prepData) {
         const prepMaterial = prepData.prep_material;
-        const questions = [];
+        const questions: { id: string; question: string; category: string }[] = [];
 
         // Extract technical questions
         if (category === 'technical' && prepMaterial.technicalQuestions) {

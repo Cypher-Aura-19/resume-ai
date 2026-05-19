@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useAuth } from '@/context/AuthContext';
 import { Loader2 } from 'lucide-react';
@@ -9,7 +9,7 @@ import QuestionFlow from '@/components/video-interview/QuestionFlow';
 import Results from '@/components/video-interview/Results';
 import { useVoiceInterviewFlow } from '@/hooks/useVoiceInterviewFlow';
 
-export default function VideoInterviewPage() {
+function VideoInterviewContent() {
   const { user, isLoading: authLoading } = useAuth();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -122,5 +122,17 @@ export default function VideoInterviewPage() {
         started={currentQuestionIndex >= 0}
       />
     </div>
+  );
+}
+
+export default function VideoInterviewPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center bg-black">
+        <Loader2 className="w-8 h-8 animate-spin text-white" />
+      </div>
+    }>
+      <VideoInterviewContent />
+    </Suspense>
   );
 }
