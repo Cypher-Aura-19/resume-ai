@@ -48,14 +48,15 @@ export default function Preloader({ onComplete }: { onComplete?: () => void }) {
                     yPercent: -100,
                     duration: 0.8,
                     ease: 'power4.inOut',
-                    force3D: true, // Hardware acceleration
+                    force3D: true,
                     onStart: () => {
-                        // Hint browser to optimize
                         if (containerRef.current) {
                             containerRef.current.style.willChange = 'transform';
                         }
+                        // Fire spin BEFORE screen is gone so model is already spinning when revealed
+                        window.dispatchEvent(new CustomEvent('preloader:spin'));
                     }
-                }, '-=0.1'); // Overlap with fade out
+                }, '-=0.1');
 
         }, containerRef);
 

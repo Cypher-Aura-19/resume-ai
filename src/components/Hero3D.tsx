@@ -18,12 +18,12 @@ function Model() {
 
         const rotation = modelRef.current.rotation;
 
-        const onPreloaderComplete = () => {
-            // Kill any existing tweens on rotation
+        const onPreloaderSpin = () => {
             gsap.killTweensOf(rotation);
 
-            // Phase 1: accelerate into fast spin (first ~0.8s)
-            // Phase 2: decelerate smoothly to a stop (remaining ~1.7s)
+            // Phase 1 (0.8s): fast burst — timed to match the preloader slide-up duration
+            // so the model is at PEAK speed exactly when the screen finishes clearing
+            // Phase 2 (2.2s): decelerate smoothly to a full stop
             const tl = gsap.timeline({
                 onComplete: () => {
                     // After spin settles, set up scroll-driven rotation
@@ -43,20 +43,20 @@ function Model() {
             });
 
             tl.to(rotation, {
-                y: `+=${Math.PI * 3}`,   // fast burst — 1.5 rotations
+                y: `+=${Math.PI * 4}`,   // ramp up — 2 full rotations in 0.8s
                 duration: 0.8,
-                ease: 'power2.in',
+                ease: 'power3.in',
             }).to(rotation, {
-                y: `+=${Math.PI * 6}`,   // decelerate — 3 more rotations dying down
-                duration: 2.0,
+                y: `+=${Math.PI * 8}`,   // decelerate — 4 more rotations dying to stop
+                duration: 2.2,
                 ease: 'power4.out',
             });
         };
 
-        window.addEventListener('preloader:complete', onPreloaderComplete);
+        window.addEventListener('preloader:spin', onPreloaderSpin);
 
         return () => {
-            window.removeEventListener('preloader:complete', onPreloaderComplete);
+            window.removeEventListener('preloader:spin', onPreloaderSpin);
             ScrollTrigger.getAll().forEach(t => t.kill());
         };
     }, []);
