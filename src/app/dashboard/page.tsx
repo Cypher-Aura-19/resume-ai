@@ -82,8 +82,8 @@ export default function DashboardPage() {
   };
 
   const statsDisplay = [
-    { label: 'Jobs Matched', value: stats.jobsMatched.toString(), change: '+0', icon: Briefcase, color: 'bg-blue-500' },
-    { label: 'Applications', value: stats.applications.toString(), change: '+0', icon: FileText, color: 'bg-purple-500' },
+    { label: 'Jobs Matched', value: stats.jobsMatched.toString(), change: '+0', icon: Briefcase, color: 'bg-brand-500' },
+    { label: 'Applications', value: stats.applications.toString(), change: '+0', icon: FileText, color: 'bg-brand-500' },
     { label: 'Interviews', value: stats.interviews.toString(), change: '+0', icon: Target, color: 'bg-green-500' },
     { label: 'Skill Score', value: `${stats.skillScore}%`, change: '+0%', icon: TrendingUp, color: 'bg-orange-500' },
   ];
@@ -296,11 +296,11 @@ export default function DashboardPage() {
                     <span>Resume analyzed</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full" />
+                    <div className="w-2 h-2 bg-brand-500 rounded-full" />
                     <span>Jobs discovered</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-purple-500 rounded-full" />
+                    <div className="w-2 h-2 bg-brand-500 rounded-full" />
                     <span>Profile updated</span>
                   </div>
                 </div>

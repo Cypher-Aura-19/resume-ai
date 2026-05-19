@@ -116,7 +116,7 @@ function HomePageContent() {
             {/* Hero Text */}
             <h1 className="text-6xl md:text-7xl lg:text-8xl font-medium tracking-tighter leading-[0.95] mb-8" style={{ perspective: '1000px' }}>
               <span className="hero-word inline-block text-black dark:text-white">Land your</span><br />
-              <span className="hero-word inline-block bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-violet-600 dark:from-blue-400 dark:to-violet-400 pb-2">dream tech</span><br />
+              <span className="hero-word inline-block bg-clip-text text-transparent bg-gradient-to-r from-brand-500 to-brand-700 dark:from-brand-300 dark:to-brand-500 pb-2">dream tech</span><br />
               <span className="hero-word inline-block text-black dark:text-white">job with</span>{' '}
               <span className="hero-word inline-block text-neutral-400 italic font-serif">AI.</span>
             </h1>

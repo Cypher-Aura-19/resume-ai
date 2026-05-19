@@ -202,7 +202,7 @@ export default function UserProfile({ userId }: UserProfileProps) {
                     href={project.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xs text-blue-600 dark:text-blue-400 hover:underline mt-2 inline-block"
+                    className="text-xs text-brand-600 dark:text-brand-400 hover:underline mt-2 inline-block"
                   >
                     View Project →
                   </a>

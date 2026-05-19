@@ -113,7 +113,7 @@ export default function JobsPage() {
 
   const getMatchColor = (score: number) => {
     if (score >= 90) return 'bg-green-100 dark:bg-green-950 text-green-600 dark:text-green-400';
-    if (score >= 80) return 'bg-blue-100 dark:bg-blue-950 text-blue-600 dark:text-blue-400';
+    if (score >= 80) return 'bg-brand-100 dark:bg-brand-950 text-brand-600 dark:text-brand-400';
     if (score >= 70) return 'bg-yellow-100 dark:bg-yellow-950 text-yellow-600 dark:text-yellow-400';
     return 'bg-gray-100 dark:bg-gray-950 text-gray-600 dark:text-gray-400';
   };

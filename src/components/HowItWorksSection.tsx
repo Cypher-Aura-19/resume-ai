@@ -13,18 +13,18 @@ const steps = [
         title: 'Create Profile',
         description: 'Upload your resume. Our AI instantly parses your skills, experience, and education to build a comprehensive professional profile.',
         icon: Upload,
-        color: 'bg-blue-500',
-        lightColor: 'bg-blue-500/10',
-        textColor: 'text-blue-500'
+        color: 'bg-brand-500',
+        lightColor: 'bg-brand-500/10',
+        textColor: 'text-brand-500'
     },
     {
         id: '02',
         title: 'Smart Discovery',
         description: 'We scan thousands of job boards. Our algorithm matches you with roles that fit your specific skill set and career aspirations.',
         icon: Search,
-        color: 'bg-purple-500',
-        lightColor: 'bg-purple-500/10',
-        textColor: 'text-purple-500'
+        color: 'bg-brand-500',
+        lightColor: 'bg-brand-500/10',
+        textColor: 'text-brand-500'
     },
     {
         id: '03',

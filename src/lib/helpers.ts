@@ -35,7 +35,7 @@ export function getMatchScoreInfo(score: number): { color: string; label: string
   if (score >= JOB_CONFIG.matchScoreThresholds.excellent) {
     return { color: 'green', label: 'Excellent Match' };
   } else if (score >= JOB_CONFIG.matchScoreThresholds.good) {
-    return { color: 'blue', label: 'Good Match' };
+    return { color: 'brand', label: 'Good Match' };
   } else if (score >= JOB_CONFIG.matchScoreThresholds.fair) {
     return { color: 'yellow', label: 'Fair Match' };
   }
@@ -83,12 +83,12 @@ export function getInitials(name: string): string {
 export function getAvatarColor(name: string): string {
   const colors = [
     'bg-red-500',
-    'bg-blue-500',
+    'bg-brand-500',
     'bg-green-500',
     'bg-yellow-500',
-    'bg-purple-500',
+    'bg-brand-500',
     'bg-pink-500',
-    'bg-indigo-500',
+    'bg-brand-700',
     'bg-orange-500',
   ];
   

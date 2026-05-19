@@ -66,8 +66,8 @@ function ConfirmEmailPageContent() {
 
       <div className="w-full max-w-md relative z-10">
         <div className="fade-item text-center mb-8">
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-blue-100 dark:bg-blue-950 rounded-full mb-6">
-            <Mail className="w-10 h-10 text-blue-600 dark:text-blue-400" />
+          <div className="inline-flex items-center justify-center w-20 h-20 bg-brand-100 dark:bg-brand-950 rounded-full mb-6">
+            <Mail className="w-10 h-10 text-brand-600 dark:text-brand-400" />
           </div>
           <h1 className="text-3xl font-light tracking-tight text-black dark:text-white mb-3">
             Check your email

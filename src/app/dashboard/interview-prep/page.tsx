@@ -405,7 +405,7 @@ export default function InterviewPrepPage() {
                     <div key={i} className="p-4 border border-neutral-200 dark:border-neutral-800 rounded-xl space-y-3">
                       <p className="font-medium text-black dark:text-white">{q.question}</p>
                       <div className="flex items-center gap-2">
-                        <span className="text-xs px-2 py-1 bg-purple-100 dark:bg-purple-950 text-purple-600 dark:text-purple-400 rounded">
+                        <span className="text-xs px-2 py-1 bg-brand-100 dark:bg-brand-950 text-brand-600 dark:text-brand-400 rounded">
                           {q.category}
                         </span>
                         <span className="text-xs px-2 py-1 bg-neutral-100 dark:bg-neutral-900 text-neutral-600 dark:text-neutral-400 rounded">
@@ -480,7 +480,7 @@ export default function InterviewPrepPage() {
               </Button>
               <Button
                 onClick={() => router.push(`/dashboard/video-interview?category=behavioral&prepId=${prepMaterial.id}`)}
-                className="bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white gap-2"
+                className="bg-gradient-to-r from-brand-500 to-brand-700 hover:from-brand-600 hover:to-brand-800 text-white gap-2"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />

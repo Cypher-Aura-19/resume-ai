@@ -296,11 +296,11 @@ export default function UploadResumePage() {
               </div>
             </div>
 
-            <div className="p-6 bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-900 rounded-2xl flex items-center gap-4">
-              <Loader2 className="w-8 h-8 text-blue-600 dark:text-blue-400 animate-spin" />
+            <div className="p-6 bg-brand-50 dark:bg-brand-950/30 border border-brand-200 dark:border-brand-900 rounded-2xl flex items-center gap-4">
+              <Loader2 className="w-8 h-8 text-brand-600 dark:text-brand-400 animate-spin" />
               <div>
-                <h3 className="text-lg font-medium text-blue-900 dark:text-blue-100">Discovering Jobs...</h3>
-                <p className="text-sm text-blue-700 dark:text-blue-300">We're finding matching opportunities for you in the background. Check the Jobs page in a moment!</p>
+                <h3 className="text-lg font-medium text-brand-900 dark:text-brand-100">Discovering Jobs...</h3>
+                <p className="text-sm text-brand-700 dark:text-brand-300">We're finding matching opportunities for you in the background. Check the Jobs page in a moment!</p>
               </div>
             </div>
 

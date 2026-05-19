@@ -181,20 +181,20 @@ export default function AnalyticsPage() {
                       ? 'bg-green-50 dark:bg-green-950/30 border-green-200 dark:border-green-900'
                       : insight.type === 'warning'
                       ? 'bg-yellow-50 dark:bg-yellow-950/30 border-yellow-200 dark:border-yellow-900'
-                      : 'bg-blue-50 dark:bg-blue-950/30 border-blue-200 dark:border-blue-900'
+                      : 'bg-brand-50 dark:bg-brand-950/30 border-brand-200 dark:border-brand-900'
                   }`}
                 >
                   <div className="flex items-start gap-3">
                     {insight.type === 'success' && <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" />}
                     {insight.type === 'warning' && <AlertCircle className="w-5 h-5 text-yellow-600 dark:text-yellow-400 flex-shrink-0 mt-0.5" />}
-                    {insight.type === 'info' && <Info className="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />}
+                    {insight.type === 'info' && <Info className="w-5 h-5 text-brand-600 dark:text-brand-400 flex-shrink-0 mt-0.5" />}
                     <div>
                       <h3 className={`font-medium mb-1 ${
                         insight.type === 'success' 
                           ? 'text-green-900 dark:text-green-100'
                           : insight.type === 'warning'
                           ? 'text-yellow-900 dark:text-yellow-100'
-                          : 'text-blue-900 dark:text-blue-100'
+                          : 'text-brand-900 dark:text-brand-100'
                       }`}>
                         {insight.title}
                       </h3>
@@ -203,7 +203,7 @@ export default function AnalyticsPage() {
                           ? 'text-green-700 dark:text-green-300'
                           : insight.type === 'warning'
                           ? 'text-yellow-700 dark:text-yellow-300'
-                          : 'text-blue-700 dark:text-blue-300'
+                          : 'text-brand-700 dark:text-brand-300'
                       }`}>
                         {insight.message}
                       </p>
@@ -243,7 +243,7 @@ export default function AnalyticsPage() {
                   <p className="text-xs text-neutral-500 mt-1">Total Jobs Viewed</p>
                 </div>
                 <div className="text-center p-4 bg-neutral-50 dark:bg-neutral-900 rounded-xl">
-                  <p className="text-2xl font-bold text-blue-600 dark:text-blue-400">
+                  <p className="text-2xl font-bold text-brand-600 dark:text-brand-400">
                     {analytics.weeklyProgress.reduce((sum: number, week: any) => sum + week.applicationsSubmitted, 0)}
                   </p>
                   <p className="text-xs text-neutral-500 mt-1">Applications Sent</p>

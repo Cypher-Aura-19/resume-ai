@@ -11,7 +11,7 @@ const services = [
     title: 'Resume Analysis',
     description: 'AI-powered extraction of skills and experience to build your comprehensive profile.',
     tags: ['PDF Parsing', 'Skill Extraction', 'Profile Building', 'ATS Optimization'],
-    color: 'from-blue-500 to-cyan-500',
+    color: 'from-brand-400 to-brand-600',
     image: '/service 1.jpg'
   },
   {
@@ -27,7 +27,7 @@ const services = [
     title: 'Interview Prep',
     description: 'Personalized questions and study guides tailored to specific roles and tech stacks.',
     tags: ['Custom Questions', 'Role-play', 'Technical Guides', 'Behavioral Prep'],
-    color: 'from-purple-500 to-pink-500',
+    color: 'from-brand-500 to-brand-700',
     image: '/service 3.jpg'
   },
   {
