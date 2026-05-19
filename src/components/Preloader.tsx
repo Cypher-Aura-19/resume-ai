@@ -20,6 +20,7 @@ export default function Preloader({ onComplete }: { onComplete?: () => void }) {
                     setTimeout(() => {
                         setIsComplete(true);
                         document.body.style.overflow = '';
+                        window.dispatchEvent(new CustomEvent('preloader:complete'));
                         if (onComplete) onComplete();
                     }, 100);
                 },

@@ -10,40 +10,53 @@ import { Group } from 'three';
 gsap.registerPlugin(ScrollTrigger);
 
 function Model() {
-    // Load the GLTF model
     const { scene } = useGLTF('/cute_robot/scene.gltf');
     const modelRef = useRef<Group>(null);
 
     useEffect(() => {
         if (!modelRef.current) return;
 
-        // Initial 360 spin on load
-        gsap.fromTo(modelRef.current.rotation,
-            { y: 0 },
-            {
-                y: Math.PI * 2,
-                duration: 2.5,
-                ease: "power3.out"
-            }
-        );
+        const rotation = modelRef.current.rotation;
 
-        // Scroll animation - fast spin
-        // We create a timeline to control the rotation based on scroll
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: "body", // Use body to track overall page scroll
-                start: "top top",
-                end: "bottom bottom",
-                scrub: 1, // Smooth scrubbing
-            }
-        });
+        const onPreloaderComplete = () => {
+            // Kill any existing tweens on rotation
+            gsap.killTweensOf(rotation);
 
-        tl.to(modelRef.current.rotation, {
-            y: Math.PI * 12, // 6 full rotations over the course of the page scroll
-            ease: "none",
-        });
+            // Phase 1: accelerate into fast spin (first ~0.8s)
+            // Phase 2: decelerate smoothly to a stop (remaining ~1.7s)
+            const tl = gsap.timeline({
+                onComplete: () => {
+                    // After spin settles, set up scroll-driven rotation
+                    const scrollTl = gsap.timeline({
+                        scrollTrigger: {
+                            trigger: 'body',
+                            start: 'top top',
+                            end: 'bottom bottom',
+                            scrub: 1,
+                        },
+                    });
+                    scrollTl.to(rotation, {
+                        y: `+=${Math.PI * 12}`,
+                        ease: 'none',
+                    });
+                },
+            });
+
+            tl.to(rotation, {
+                y: `+=${Math.PI * 3}`,   // fast burst — 1.5 rotations
+                duration: 0.8,
+                ease: 'power2.in',
+            }).to(rotation, {
+                y: `+=${Math.PI * 6}`,   // decelerate — 3 more rotations dying down
+                duration: 2.0,
+                ease: 'power4.out',
+            });
+        };
+
+        window.addEventListener('preloader:complete', onPreloaderComplete);
 
         return () => {
+            window.removeEventListener('preloader:complete', onPreloaderComplete);
             ScrollTrigger.getAll().forEach(t => t.kill());
         };
     }, []);
